@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lihi Askapa  - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <canvas id="bg"></canvas>
+  <header class="navbar">
+    <div class="logo">Lihi Askapa</div>
+
+    <!-- תפריט דסקטופ -->
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/lihi-askapa/" target="_blank" aria-label="LinkedIn">
+        <svg width="22" height="22" fill="none" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="18" height="18" rx="2"></rect>
+          <path d="M7 10v6"></path>
+          <circle cx="7" cy="7" r="1"></circle>
+          <path d="M11 10v6m0-4c0-1.5 1-2 2.5-2s2.5.5 2.5 2v4"></path>
+        </svg>
+      </a>
+      <a href="https://github.com/lihi-askapa" target="_blank" aria-label="GitHub">
+        <svg width="22" height="22" fill="none" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.51 2.87 8.33 6.84 9.68.5.09.68-.22.68-.48 0-.24-.01-1.03-.01-1.87-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.38-2.03 1.02-2.74-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.03A9.29 9.29 0 0 1 12 6.8c.85 0 1.7.12 2.5.35 1.9-1.3 2.74-1.03 2.74-1.03.56 1.4.21 2.44.1 2.7.64.71 1.02 1.62 1.02 2.74 0 3.95-2.34 4.82-4.57 5.07.36.33.67.97.67 1.96 0 .87-.01 1.56-.01 1.78 0 .26.18.58.69.48A10.04 10.04 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/>
+        </svg>
+      </a>
+      <a href="mailto:lihi.askapa@gmail.com" aria-label="Email">
+        <svg width="22" height="22" fill="none" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+      </a>
+      <a href="tel:0542578783" aria-label="Phone">
+        <svg width="22" height="22" fill="none" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 8.81 19.79 19.79 0 0 1 0 3.18 2 2 0 0 1 2 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.67 2 2 0 0 1-.45 2.11L6 8.41a16 16 0 0 0 7.17 7.17l.91-.25a2 2 0 0 1 2.11.45 12.84 12.84 0 0 0 2.67.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </a>
+    </div>
+<button class="hamburger" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- תפריט מובייל שנפתח -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/lihi-askapa/" target="_blank" aria-label="LinkedIn">
+        <svg width="22" height="22" fill="none" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="18" height="18" rx="2"></rect>
+          <path d="M7 10v6"></path>
+          <circle cx="7" cy="7" r="1"></circle>
+          <path d="M11 10v6m0-4c0-1.5 1-2 2.5-2s2.5.5 2.5 2v4"></path>
+        </svg>
+      </a>
+      <a href="https://github.com/lihi-askapa" target="_blank" aria-label="GitHub">
+        <svg width="22" height="22" fill="none" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.51 2.87 8.33 6.84 9.68.5.09.68-.22.68-.48 0-.24-.01-1.03-.01-1.87-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.38-2.03 1.02-2.74-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.03A9.29 9.29 0 0 1 12 6.8c.85 0 1.7.12 2.5.35 1.9-1.3 2.74-1.03 2.74-1.03.56 1.4.21 2.44.1 2.7.64.71 1.02 1.62 1.02 2.74 0 3.95-2.34 4.82-4.57 5.07.36.33.67.97.67 1.96 0 .87-.01 1.56-.01 1.78 0 .26.18.58.69.48A10.04 10.04 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/>
+        </svg>
+      </a>
+      <a href="mailto:lihi.askapa@gmail.com" aria-label="Email">
+        <svg width="22" height="22" fill="none" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+      </a>
+      <a href="tel:0542578783" aria-label="Phone">
+        <svg width="22" height="22" fill="none" stroke="#e5e7eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 8.81 19.79 19.79 0 0 1 0 3.18 2 2 0 0 1 2 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.67 2 2 0 0 1-.45 2.11L6 8.41a16 16 0 0 0 7.17 7.17l.91-.25a2 2 0 0 1 2.11.45 12.84 12.84 0 0 0 2.67.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </a>
+    </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <h1>Hi, I'm Lihi Askapa and welcome to my portfolio</h1>
+      <p class="hero-text">DevOps Student Engineer at <span class="highlight">Check Point </span> and second-year Computer Science student (GPA 94.3),</p>
+      <p class="hero-text">with practical development experience gained during my military service as an intelligence army officer in <span class="highlight">Unit 9900</span>. I developed <span class="highlight">full-stack</span> and <span class="highlight">automation tools</span> to support intelligence and mission-driven workflows,</p>
+      <p class="hero-text">I'm continuing to expand my expertise in <span class="highlight">DevOps</span>, <span class="highlight">cloud technologies</span>, and <span class="highlight">software engineering</span> through my current role and academic studies.</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn primary">View projects</a>
+        <a href="Lihi_Askapa_resume.pdf" class="btn primary resume-button" target="_blank" rel="noopener noreferrer">My Resume
+            <svg class="arrow-down" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3v14m0 0l-6-6m6 6l6-6M5 21h14" 
+                stroke="#020617" stroke-width="2" 
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <a href="#contact" class="btn primary">Contact Me</a>
+      </div>
+    </section>
+    <section id="about" class="section skills">
+  <h2 class="skills-title">Skills</h2>
+  <p class="skills-tagline">
+    I see problems as puzzles — and I love solving them creatively.
+  </p>
+
+  <div class="skills-grid">
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">HTML</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">JS</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">C programing</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">GIS</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Rapid Learning</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">CSS</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Python</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Self Learning</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Accessibility</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">OOP</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Data Science</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Problem Solving</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">GIT & Version Control</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Flask</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Team Collaboration</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Analytical Thinking</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Time Managment</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Multitasking</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Leading Teams</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Analytical Thinking</span>
+    </div>
+
+    <div class="puzzle-skill">
+      <span class="t"></span>
+      <span class="r"></span>
+      <span class="b"></span>
+      <span class="l"></span>
+      <span class="text">Work Under Pressure</span>
+    </div>
+
+  </div>
+</section>
+    <section id = "experience" class="timeline-section">
+        <h2 class="timeline-title">My Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>DevOps Student Engineer - Check Point</h3>
+                        <span class="timeline-date">OCT 2025 - PRESENT</span>
+                        <ul class="exp-list">
+                            <li>Working with automation, CI/CD and development workflows.</li>
+                        </ul>   
+                    </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Army Officer & Full Stack Developer | GeoData Analyst</h3>
+                        <span class="timeline-date">FEB 2021 - OCT 2025</span>
+                        <ul class="exp-list">
+                            <li>Served as assistant to a senior commander in the Mapping Unit: built and deployed GIS systems used in operations.</li>
+                            <li>Led a full military coding course: trained 35+ developers and mentored 7 team leaders.</li>
+                            <li>Selected for officer training focused on leadership, initiative, and project execution.</li>
+                            <li>Developed GIS-based intelligence tools at the Southern Command.</li>
+                            <li>Completed an elite 3-month programming bootcamp (Python & GIS) for military tech applications.</li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section id="education" class="education-section">
+  <h2 class="education-title">Education</h2>
+    <p class="computer-science-courses">Completed Computer Science Degree Courses</p>
+  <div class="education-grid">
+    <div class="edu-card">
+      <div class="edu-header">
+        <span class="edu-badge">Course</span>
+        <span class="edu-grade">83</span>
+      </div>
+      <h3>Discrete Mathematics 1</h3>
+      <p>Foundations of logic, set theory, functions, induction, recursion, and graph theory.</p>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-header">
+        <span class="edu-badge">Course</span>
+        <span class="edu-grade">95</span>
+      </div>
+      <h3>Introduction to Computer Systems</h3>
+      <p>Understanding of computer architecture, memory, processes, and the interaction between hardware and software.</p>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-header">
+        <span class="edu-badge">Course</span>
+        <span class="edu-grade">100</span>
+      </div>
+      <h3>Introduction to Computer Science</h3>
+      <p>Core programming concepts, problem-solving, algorithms, and modern web basics (C Programming language).</p>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-header">
+        <span class="edu-badge">Course</span>
+        <span class="edu-grade">98</span>
+      </div>
+      <h3>Linear Algebra 1</h3>
+      <p>Matrices, vector spaces, linear transformations, eigenvalues, eigenvectors and applications in computation.</p>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-header">
+        <span class="edu-badge">Course</span>
+        <span class="edu-grade">100</span>
+      </div>
+      <h3>Infinitesimal Calculus 1</h3>
+      <p>Limits, derivatives, integrals, sequences and series with applications to computational problems.</p>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-header">
+        <span class="edu-badge">Course</span>
+        <span class="edu-grade">83</span>
+      </div>
+      <h3>Advanced Programming Workshop</h3>
+      <p>Hands-on software development, debugging, best-practice coding.</p>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-header">
+        <span class="edu-badge">Course</span>
+        <span class="edu-grade">80</span>
+      </div>
+      <h3>Discrete Mathematics 2</h3>
+      <p>Combinatorics, relations, automata theory, regular languages, finite state machines and logic reasoning.</p>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-header">
+        <span class="edu-badge">Course</span>
+        <span class="edu-grade">96</span>
+      </div>
+      <h3>Data Structures</h3>
+      <p>Implementation and analysis of major data structures: lists, trees, hash tables, graphs, heaps and algorithmic efficiency.</p>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-header">
+        <span class="edu-badge">Course</span>
+        <span class="edu-grade">100</span>
+      </div>
+      <h3>Object Oriented Programming</h3>
+      <p>OOP principles, inheritance, abstraction, interfaces, design patterns and writing scalable, maintainable software.</p>
+    </div>
+  </div>
+
+  <div class="degree-summary">
+    <div class="degree-text">
+      <h3>B.Sc. Computer Science – HIT</h3>
+      <p>Current GPA: <span class="gpa-highlight">94.3</span></p>
+    </div>
+
+    <div class="degree-progress-wrapper">
+      <div class="degree-progress-labels">
+        <span>Progress Towards Graduation</span>
+        <span class="degree-percent">43.5%</span>
+      </div>
+      <div class="degree-progress-bar">
+        <div class="degree-progress-fill"></div>
+      </div>
+    </div>
+  </div>
+    <!-- Military course highlight -->
+  <div class="degree-summary military-course">
+    <div class="degree-text">
+      <h3>Intensive Military Intelligence Programing Course - Python & GIS</h3>
+      <p>Final Grade: <span class="gpa-highlight">100</span></p>
+    </div>
+
+    <div class="degree-progress-wrapper">
+      <div class="degree-progress-labels">
+        <span>Completion</span>
+        <span class="degree-percent">100%</span>
+      </div>
+      <div class="degree-progress-bar">
+        <div class="degree-progress-fill full"></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<section id="projects" class="projects-section">
+  <h2 class="projects-title">Projects</h2>
+
+  <div class="projects-grid">
+
+    <!-- Featured Project: Ogdan Engineers -->
+    <article class="project-card featured-project">
+      <div class="project-header">
+        <div>
+          <h3>Ogdan Mehandesim Website – Business Website Development</h3>
+          <p class="project-subtitle">
+            Full-stack development of a complete business website for an engineering company.
+          </p>
+        </div>
+        <span class="project-badge">Industrial Project</span>
+      </div>
+
+      <div class="project-body">
+        <div class="project-main">
+          <p class="project-description">
+            Independently developed the company’s public-facing website, managing the entire development
+        lifecycle — from requirement analysis and design to implementation and deployment.
+          </p>
+
+          <ul class="project-points">
+            <li>Built a responsive UI to showcase services, job openings, and company information.</li>
+            <li>Implemented backend features and routing using Flask.</li>
+            <li>Handled UX/UI flow, branding alignment, and overall site architecture.</li>
+          </ul>
+        </div>
+
+        <div class="project-meta">
+          <div class="meta-block">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Full-Stack Developer</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label">Context</span>
+            <span class="meta-value">Industry Project – Ogdan Engineers</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label">Tech</span>
+            <div class="meta-tags">
+              <span>Python</span>
+              <span>Flask</span>
+              <span>JavaScript</span>
+              <span>HTML</span>
+              <span>CSS</span>
+            </div>
+          </div>
+
+          <div class="project-links">
+            <!-- אם יש קישורים אמיתיים – תחליפי href -->
+            <a href="https://xn----zhcgebfd1bybgjpo.xn--4dbrk0ce/" class="btn project-btn" target="_blank" rel="noopener">
+              View project overview
+            </a>
+            <a href="https://github.com/lihi-askapa/ogdan_mehndesim_website" 
+               class="btn project-btn secondary-btn" 
+               target="_blank" rel="noopener">
+              See more on github
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- "שכבת שרטוט" ברקע בשביל וייב הנדסי -->
+      <div class="project-overlay-grid"></div>
+    </article>
+
+  </div>
+</section>
+<section id="contact" class="contact-section">
+  <h2 class="contact-title">Contact Me</h2>
+  <p class="contact-subtitle">
+    Feel free to reach out — I'm always happy to connect!
+  </p>
+
+  <form id="contactForm" class="contact-form">
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your name" />
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="email" name="email" required placeholder="Your email" />
+    </div>
+
+    <div class="form-group">
+      <label>Message</label>
+      <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+    </div>
+
+    <button type="submit" class="btn contact-btn">Send Message</button>
+  </form>
+
+  <p id="formStatus" class="form-status"></p>
+</section>
+
+  </main>
+  <script>
+  const pieces = document.querySelectorAll('.puzzle-skill');
+
+  pieces.forEach(piece => {
+    piece.addEventListener('mousedown', startDrag);
+  });
+
+  let current = null;
+  let startX = 0;
+  let startY = 0;
+  let originX = 0;
+  let originY = 0;
+
+  function getTranslate(el) {
+    const style = window.getComputedStyle(el);
+    const matrix = new WebKitCSSMatrix(style.transform);
+    return { x: matrix.m41, y: matrix.m42 };
+  }
+
+  function startDrag(e) {
+    e.preventDefault();
+
+    current = e.currentTarget;
+
+    const pos = getTranslate(current);
+    originX = pos.x;
+    originY = pos.y;
+
+    startX = e.clientX;
+    startY = e.clientY;
+
+    document.addEventListener('mousemove', onDrag);
+    document.addEventListener('mouseup', stopDrag);
+
+    current.style.zIndex = 10;
+  }
+
+  function onDrag(e) {
+    if (!current) return;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    const newX = originX + dx;
+    const newY = originY + dy;
+
+    current.style.transform = `translate(${newX}px, ${newY}px)`;
+  }
+
+  function stopDrag() {
+    if (!current) return;
+
+    current.style.zIndex = 1;
+
+    document.removeEventListener('mousemove', onDrag);
+    document.removeEventListener('mouseup', stopDrag);
+
+    current = null;
+  }
+</script>
+
+<script>
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+const particles = [];
+const particleCount = 70;
+const maxDist = 120;
+
+for (let i = 0; i < particleCount; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.6,
+    vy: (Math.random() - 0.5) * 0.6,
+  });
+}
+
+let mouse = { x: null, y: null };
+window.addEventListener("mousemove", e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+window.addEventListener("mouseleave", () => {
+  mouse.x = null;
+});
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+    ctx.fillStyle = "rgba(255, 80, 180, 0.7)";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+    ctx.fill();
+
+    particles.forEach(p2 => {
+      const dx = p.x - p2.x;
+      const dy = p.y - p2.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < maxDist) {
+        const alpha = 1 - dist / maxDist;
+        ctx.strokeStyle = `rgba(255, 80, 180, ${alpha})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+      }
+    });
+
+    if (mouse.x !== null) {
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 160) {
+        const alpha = 1 - dist / 160;
+        ctx.strokeStyle = `rgba(0, 200, 255, ${alpha})`;
+        ctx.beginPath();
+        ctx.moveTo(mouse.x, mouse.y);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+      }
+    }
+  });
+
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href');
+    const target = document.querySelector(targetId);
+
+    if (!target) return;
+
+    smoothScrollTo(target, 1000); 
+  });
+});
+
+function smoothScrollTo(target, duration) {
+  const start = window.pageYOffset;
+  const end = target.getBoundingClientRect().top + window.pageYOffset;
+  const distance = end - start;
+  let startTime = null;
+
+  function animation(currentTime) {
+    if (!startTime) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / duration, 1);
+
+    const ease = progress < 0.5 
+      ? 2 * progress * progress 
+      : -1 + (4 - 2 * progress) * progress;
+
+    window.scrollTo(0, start + distance * ease);
+
+    if (timeElapsed < duration) {
+      requestAnimationFrame(animation);
+    }
+  }
+
+  requestAnimationFrame(animation);
+}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const timelineItems = document.querySelectorAll(".timeline-item");
+
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+      }
+    });
+  }, { threshold: 0.25 });
+
+  timelineItems.forEach(item => {
+    timelineObserver.observe(item);
+  });
+});
+</script>
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  // קבלת הערכים מהטופס לפי ה-ID המתאים
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  const statusEl = document.getElementById("formStatus");
+  statusEl.textContent = "Sending...";
+  statusEl.style.color = "#cbd5f5";
+
+  try {
+    const response = await fetch("http://127.0.0.1:5000/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name, email, message })
+    });
+
+    const data = await response.json();
+
+    if (data.status === "ok") {
+      statusEl.textContent = data.message;
+      statusEl.style.color = "#4ade80"; // ירוק
+      document.getElementById("contactForm").reset(); // איפוס טופס
+    } else {
+      statusEl.textContent = data.message || "Something went wrong.";
+      statusEl.style.color = "#f87171"; // אדום
+    }
+  } catch (err) {
+    console.error("Error:", err);
+    statusEl.textContent = "Error sending message. Please try again.";
+    statusEl.style.color = "#f87171"; // אדום
+  }
+});
+</script>
+
+
+</body>
+</html>
