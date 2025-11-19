@@ -187,7 +187,7 @@
       <span class="r"></span>
       <span class="b"></span>
       <span class="l"></span>
-      <span class="text">Accessibility</span>
+      <span class="text">Accessible UI</span>
     </div>
 
     <div class="puzzle-skill">
@@ -235,7 +235,7 @@
       <span class="r"></span>
       <span class="b"></span>
       <span class="l"></span>
-      <span class="text">Team Collaboration</span>
+      <span class="text">Teamwork</span>
     </div>
 
     <div class="puzzle-skill">
@@ -259,7 +259,7 @@
       <span class="r"></span>
       <span class="b"></span>
       <span class="l"></span>
-      <span class="text">Multitasking</span>
+      <span class="text">Multi-tasking</span>
     </div>
 
     <div class="puzzle-skill">
@@ -723,22 +723,28 @@ function smoothScrollTo(target, duration) {
 }
 </script>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const timelineItems = document.querySelectorAll(".timeline-item");
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const mobileMenu   = document.getElementById("mobileMenu");
 
-  const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-      }
+    if (!hamburgerBtn || !mobileMenu) return;
+
+    // לחיצה על האיקון – פתיחה/סגירה
+    hamburgerBtn.addEventListener("click", () => {
+      hamburgerBtn.classList.toggle("active");  // משנה את ה־X
+      mobileMenu.classList.toggle("open");      // פותח/סוגר את התפריט
     });
-  }, { threshold: 0.25 });
 
-  timelineItems.forEach(item => {
-    timelineObserver.observe(item);
+    // אופציונלי: סגירה כשבוחרים לינק
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        hamburgerBtn.classList.remove("active");
+        mobileMenu.classList.remove("open");
+      });
+    });
   });
-});
 </script>
+
 <script>
 document.getElementById("contactForm").addEventListener("submit", async function (e) {
   e.preventDefault();
