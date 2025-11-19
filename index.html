@@ -419,7 +419,6 @@
       </div>
     </div>
   </div>
-    <!-- Military course highlight -->
   <div class="degree-summary military-course">
     <div class="degree-text">
       <h3>Intensive Military Intelligence Programing Course - Python & GIS</h3>
@@ -443,7 +442,6 @@
 
   <div class="projects-grid">
 
-    <!-- Featured Project: Ogdan Engineers -->
     <article class="project-card featured-project">
       <div class="project-header">
         <div>
@@ -490,7 +488,6 @@
           </div>
 
           <div class="project-links">
-            <!-- אם יש קישורים אמיתיים – תחליפי href -->
             <a href="https://xn----zhcgebfd1bybgjpo.xn--4dbrk0ce/" class="btn project-btn" target="_blank" rel="noopener">
               View project overview
             </a>
@@ -503,10 +500,8 @@
         </div>
       </div>
 
-      <!-- "שכבת שרטוט" ברקע בשביל וייב הנדסי -->
       <div class="project-overlay-grid"></div>
     </article>
-    <!-- Featured Project: Portfolio Website -->
 <article class="project-card featured-project">
   <div class="project-header">
     <div>
@@ -561,7 +556,6 @@
 
       <div class="project-links">
 
-  <!-- כפתור גיטהאב – שקוף/שני -->
   <a href="https://github.com/lihi-askapa/lihi-portfolio"
      class="btn project-btn secondary-btn"
      target="_blank" rel="noopener">
@@ -797,13 +791,11 @@ function smoothScrollTo(target, duration) {
 
     if (!hamburgerBtn || !mobileMenu) return;
 
-    // לחיצה על האיקון – פתיחה/סגירה
     hamburgerBtn.addEventListener("click", () => {
-      hamburgerBtn.classList.toggle("active");  // משנה את ה־X
-      mobileMenu.classList.toggle("open");      // פותח/סוגר את התפריט
+      hamburgerBtn.classList.toggle("active");  
+      mobileMenu.classList.toggle("open");      
     });
 
-    // אופציונלי: סגירה כשבוחרים לינק
     mobileMenu.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         hamburgerBtn.classList.remove("active");
@@ -817,7 +809,6 @@ function smoothScrollTo(target, duration) {
 document.getElementById("contactForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  // קבלת הערכים מהטופס לפי ה-ID המתאים
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const message = document.getElementById("message").value.trim();
@@ -839,16 +830,16 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
     if (data.status === "ok") {
       statusEl.textContent = data.message;
-      statusEl.style.color = "#4ade80"; // ירוק
-      document.getElementById("contactForm").reset(); // איפוס טופס
+      statusEl.style.color = "#4ade80";
+      document.getElementById("contactForm").reset(); 
     } else {
       statusEl.textContent = data.message || "Something went wrong.";
-      statusEl.style.color = "#f87171"; // אדום
+      statusEl.style.color = "#f87171"; 
     }
   } catch (err) {
     console.error("Error:", err);
     statusEl.textContent = "Error sending message. Please try again.";
-    statusEl.style.color = "#f87171"; // אדום
+    statusEl.style.color = "#f87171"; 
   }
 });
 </script>

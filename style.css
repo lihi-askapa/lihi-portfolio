@@ -164,15 +164,31 @@ body {
   .mobile-menu .nav-links a {
     font-size: 1.1rem;
     padding-bottom: 0.3rem;
+    text-align: center;
   }
 
   .navbar {
    display: flex;
-    flex-direction: row;       /* במקום column */
+    flex-direction: row;       
     justify-content: space-between;
     align-items: center;
     padding: 1rem 6vw;
   }
+  .mobile-menu {
+    position: fixed;
+    top: 64px;          
+    left: 0;
+    right: 0;
+
+   
+    bottom: auto;       
+    max-height: 60vh;  
+    overflow-y: auto;    
+
+    border-radius: 0 0 20px 20px;
+    z-index: 999;
+  }
+  
 }
 
 .hero {
@@ -998,6 +1014,7 @@ body {
   .mobile-menu {
     text-align: center;  
     align-items: center; 
+    
   }
 
   /* מרכז את הלינקים */
