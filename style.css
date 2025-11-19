@@ -10,7 +10,6 @@ body {
   font-family: "Sora", sans-serif;
 }
 
-/* navbar */
 
 .navbar {
   position: sticky;
@@ -93,16 +92,15 @@ body {
 .social-links a:active {
   text-decoration: none !important;
 }
-/* ===== HAMBURGER MENU – MOBILE ===== */
 
 .hamburger {
-  display: none; /* יופיע רק במובייל */
+  display: none; 
   flex-direction: column;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1000; /* שיהיה מעל הבאקגרונד */
+  z-index: 1000; 
 }
 
 .hamburger span {
@@ -113,7 +111,6 @@ body {
   transition: 0.3s ease;
 }
 
-/* מצב פתוח – איקס */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
 }
@@ -124,7 +121,6 @@ body {
   transform: rotate(-45deg) translateY(-8px);
 }
 
-/* תפריט מובייל סגור */
 .mobile-menu {
   display: none;
   flex-direction: column;
@@ -136,7 +132,6 @@ body {
   backdrop-filter: blur(8px);
 }
 
-/* תפריט פתוח */
 .mobile-menu.open {
   display: flex;
 }
@@ -147,13 +142,13 @@ body {
     margin-left: auto;
   }
   
-  /* מסתיר תפריט דסקטופ */
+
   .navbar .nav-links,
   .navbar .social-links {
     display: none;
   }
 
-  /* התפריט הפנימי בתוך mobile-menu */
+
   .mobile-menu .nav-links,
   .mobile-menu .social-links {
     display: flex;
@@ -326,9 +321,9 @@ body {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 180px); /* עמודות קבועות */
-  gap: 3.2rem;                                     /* רווח בין הקוביות */
-  justify-content: center;                         /* ממרכז את הגריד */
+  grid-template-columns: repeat(auto-fit, 180px); 
+  gap: 3.2rem;                                     
+  justify-content: center;                        
   justify-items: center;
   position: relative;
 }
@@ -542,7 +537,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
   align-items: stretch;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.4); /* 🔹 מפריד ויזואלית מהחלק הבא */
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4); 
 }
 
 
@@ -615,7 +610,7 @@ body {
 
 
 .degree-summary {
-  margin: 2.5rem auto 0;   /* 🔹 רווח מלמעלה, צמוד לקו של הקורסים */
+  margin: 2.5rem auto 0;   
   max-width: 780px;
   padding: 1.6rem 1.8rem;
   border-radius: 1.4rem;
@@ -678,19 +673,16 @@ body {
   background: linear-gradient(90deg, #f32e90, #f97316, #facc15);
   animation: degreeFill 1.6s ease forwards;
 }
-/* וריאציה מיוחדת לקורס הצבאי */
 .military-course {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
 }
 
 
-/* מילוי מלא לבר */
 .degree-progress-fill.full {
   animation: degreeFill_army 1.6s ease forwards;
 }
 
-/* ===== PROJECTS SECTION ===== */
 
 .projects-section {
   padding: 6rem 8vw;
@@ -711,7 +703,6 @@ body {
   margin: 0 auto;
 }
 
-/* featured project card – like an engineering dashboard */
 .project-card {
   position: relative;
   border-radius: 1.6rem;
@@ -733,7 +724,6 @@ body {
   pointer-events: none;
 }
 
-/* overlay lines – blueprint vibe */
 .project-overlay-grid {
   position: absolute;
   inset: 0;
@@ -861,7 +851,6 @@ body {
   border: 1px solid rgba(148, 163, 184, 0.5);
 }
 
-/* project buttons reuse .btn but a bit slimmer */
 .project-links {
   margin-top: 0.6rem;
   display: flex;
@@ -893,7 +882,6 @@ body {
   background: rgba(15, 23, 42, 0.9);
 }
 
-/* responsive */
 @media (max-width: 900px) {
   .project-body {
     grid-template-columns: 1fr;
@@ -915,7 +903,6 @@ body {
   }
 }
 
-/* ===== CONTACT SECTION ===== */
 
 .contact-section {
   padding: 6rem 8vw;
@@ -990,6 +977,41 @@ body {
   background: #f32e90 !important;
   border-color: rgba(248, 113, 208, 0.8) !important;
   box-shadow: 0 12px 30px rgba(243, 46, 144, 0.35) !important;
+}
+
+/* ===== Scroll reveal animation ===== */
+
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+/* כשנכנס למסך */
+.fade-in-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* אפשר להוסיף וריאציות – אם תרצי בעתיד: */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.fade-in-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.fade-in-right.show {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 
@@ -1071,8 +1093,8 @@ body {
   .project-btn {
     padding: 0.6rem 1rem;
     font-size: 0.85rem;
-    min-width: 70%;         /* במקום 100% */
-    border-radius: 20px;    /* צורה יותר "כפתורית" */
+    min-width: 70%;         
+    border-radius: 20px;    
     box-shadow: 0 6px 16px rgba(243, 46, 144, 0.35);
   }
 
@@ -1099,7 +1121,7 @@ body {
     align-items: center;
   }
   .btn:active {
-    transform: scale(0.97);      /* קליק קטן */
+    transform: scale(0.97);     
     box-shadow: 0 4px 10px rgba(243, 46, 144, 0.25);
   }
 
@@ -1110,7 +1132,6 @@ body {
   }
   }
 
-  /* 🔹 Skills – גריד יותר מסודר במובייל */
   .skills {
     padding: 3rem 1.4rem;
   }
@@ -1120,11 +1141,6 @@ body {
   gap: 2.8rem; /* 🔹 יותר ריווח במובייל */
 }
 
-
-
-  /* אם את רוצה טור אחד – תחליפי ל:
-     grid-template-columns: 1fr;
-  */
 
   .puzzle-skill {
     width: 100%;
@@ -1137,7 +1153,7 @@ body {
     padding: 2.6rem 0.6rem 0.4rem;
 
     text-align: center;
-    white-space: normal;        /* שיבר שורות רגיל */
+    white-space: normal;       
     word-break: break-word; 
   }
     .timeline-section {
@@ -1226,7 +1242,7 @@ body {
   }
 
   .project-body {
-    grid-template-columns: 1fr;   /* במקום 2 טורים – יורד לטור אחד */
+    grid-template-columns: 1fr;   
     gap: 1.4rem;
   }
 
@@ -1291,7 +1307,7 @@ body {
 
     text-align: center;
     white-space: normal;
-    word-break: normal;        /* שיבר שורות רגיל */
+    word-break: normal;       
     word-break: break-word;
   }ֿ
 
@@ -1333,19 +1349,19 @@ body {
   }
 }
 
-  /* ===== DESKTOP – Skills as fixed puzzle tiles ===== */
+  
 @media (min-width: 769px) {
   .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 3rem;                 /* רווח יפה בין הפאזלים */
+    gap: 3rem;                
     justify-content: center;
     align-items: flex-start;
   }
 
   .puzzle-skill {
-    width: 180px;              /* גודל קבוע */
-    height: 140px;             /* גובה קבוע */
+    width: 180px;              
+    height: 140px;             
   }
 
   .puzzle-skill .text {
