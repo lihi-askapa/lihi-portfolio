@@ -905,7 +905,7 @@ body {
 
 
 .contact-section {
-  padding: 6rem 8vw;
+  padding: 6rem 8vw 2rem;
   text-align: center;
   direction: ltr;
 }
@@ -1023,6 +1023,26 @@ body {
   background: #f32e90;
   animation: caret-blink 0.8s steps(1) infinite;
 }
+
+.footer {
+  margin-top:1rem;
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #cbd5f5;
+  opacity: 0.8;
+  direction: ltr;
+}
+
+/* השם בפונט קליגרפי */
+.signature-name {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  color: #f32e90;
+}
+
+
 
 @keyframes caret-blink {
   0%, 50% { opacity: 1; }
