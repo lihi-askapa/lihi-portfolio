@@ -1013,6 +1013,21 @@ body {
   opacity: 1;
   transform: translateX(0);
 }
+/* ===== TYPEWRITER INTRO ===== */
+
+/* קו מהבהב בסוף הטקסט */
+.typewriter-caret {
+  display: inline-block;
+  width: 0.1em;
+  margin-left: 2px;
+  background: #f32e90;
+  animation: caret-blink 0.8s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
 
 
 
