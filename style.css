@@ -1404,3 +1404,16 @@ body {
     padding-top: 3.2rem;
   }
 }
+@media (min-width: 401px) and (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.1rem;   /* רווח גדול יותר */
+    padding: 0 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.2rem;
+  }
+}
