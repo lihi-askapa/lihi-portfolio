@@ -2,19 +2,12 @@
    WELCOME BEE
    A small cartoon bee flies in from the left when the site opens,
    does a loop in the middle of the screen and flies out on the right.
-   Shown once per browser session; skipped for "reduce motion" users.
+   Shown on every page load (including refresh); skipped for "reduce motion" users.
 =========================================== */
 
 (function () {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduceMotion) return;
-
-  try {
-    if (sessionStorage.getItem("beeFlown")) return;
-    sessionStorage.setItem("beeFlown", "1");
-  } catch (e) {
-    /* storage blocked: just show the bee */
-  }
 
   const BEE_SVG = `
 <svg viewBox="0 0 130 110" xmlns="http://www.w3.org/2000/svg">

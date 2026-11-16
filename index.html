@@ -58,6 +58,7 @@
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#riddles">Riddles</a>
       <a href="#contact">Contact Me</a>
     </nav>
 
@@ -138,6 +139,7 @@
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
       <a href="#projects">Projects</a>
+      <a href="#riddles">Riddles</a>
       <a href="#contact">Contact Me</a>
     </nav>
 
@@ -1255,6 +1257,108 @@
 
         </article>
 
+      </div>
+
+    </section>
+
+    <!-- ======================================
+         WEEKLY RIDDLE (LinkedIn community)
+    ======================================= -->
+
+    <section id="riddles" class="riddles-section fade-in-on-scroll">
+
+      <h2 class="riddles-title">🐝 #WeeklyRiddle</h2>
+
+      <p class="riddles-intro">
+        Every week I post a logic, algorithms or coding riddle on LinkedIn, and
+        thousands of people try to solve it with me in the comments. It started as a
+        way to keep thinking out loud, and grew into a community built on curiosity,
+        logic and challenging the way we think.
+      </p>
+
+      <div class="riddle-stats">
+        <div class="riddle-stat"><span class="riddle-stat-num">8.4K+</span><span class="riddle-stat-label">LinkedIn followers</span></div>
+        <div class="riddle-stat"><span class="riddle-stat-num">30+</span><span class="riddle-stat-label">weekly riddles</span></div>
+        <div class="riddle-stat"><span class="riddle-stat-num">130K+</span><span class="riddle-stat-label">riddle impressions</span></div>
+      </div>
+
+      <p class="riddles-try">Try a few of the favourites. Think first, then reveal the answer 👇</p>
+
+      <div class="riddle-grid">
+
+        <article class="riddle-card">
+          <div class="riddle-meta"><span class="riddle-tag">Code review</span><span class="riddle-level">🟠 Medium</span></div>
+          <h3>The bee and the bug nobody caught 🐛</h3>
+          <p>The bee asked an AI coding assistant for a function that returns the <strong>second largest distinct</strong> number in a list. It wrote:</p>
+          <pre class="riddle-code"><code>def second_largest(nums):
+    largest = float('-inf')
+    second = float('-inf')
+    for num in nums:
+        if num &gt; largest:
+            second = largest
+            largest = num
+        elif num &gt; second:
+            second = num
+    return second</code></pre>
+          <p>All her tests passed: <code>[4, 8, 2, 6] → 6</code>, <code>[10, 5, 3, 1] → 5</code>. Which input exposes the bug, and how do you fix it?</p>
+          <details class="riddle-answer">
+            <summary>Reveal answer</summary>
+            <p>Try <code>[8, 8, 6]</code>: the second 8 is not bigger than <code>largest</code>, but it is bigger than <code>second</code>, so the function returns 8 instead of 6. Duplicates of the maximum are never filtered out.</p>
+            <p><strong>Fix:</strong> change the second condition to <code>elif largest &gt; num &gt; second:</code>. It still runs in one pass with O(1) extra memory, no sorting needed. Also return <code>None</code> when there is no second distinct value.</p>
+          </details>
+          <a class="riddle-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7514233865205424129/" target="_blank" rel="noopener noreferrer">See the post on LinkedIn →</a>
+        </article>
+
+        <article class="riddle-card">
+          <div class="riddle-meta"><span class="riddle-tag">Algorithms</span><span class="riddle-level">🟠 Medium</span></div>
+          <h3>The bee's backpack 🎒🍯</h3>
+          <p>The bee's bag holds up to <strong>10 kg</strong>. Each nectar jar can be taken once, and only whole:</p>
+          <ul class="riddle-list">
+            <li>A: 6 kg, value 30</li>
+            <li>B: 3 kg, value 14</li>
+            <li>C: 4 kg, value 16</li>
+            <li>D: 2 kg, value 9</li>
+            <li>E: 5 kg, value 20</li>
+          </ul>
+          <p>Which jars give the maximum value? And does always grabbing the best value-per-kg jar work?</p>
+          <details class="riddle-answer">
+            <summary>Reveal answer</summary>
+            <p><strong>A + C</strong>: exactly 10 kg, value <strong>46</strong>.</p>
+            <p>Greedy by value per kg fails here: it takes A (5/kg), then B (4.67/kg), reaching 9 kg and value 44, with no room for anything else. This is the 0/1 knapsack problem, and dynamic programming finds the true optimum.</p>
+          </details>
+          <a class="riddle-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7500478983046836224/" target="_blank" rel="noopener noreferrer">See the post on LinkedIn →</a>
+        </article>
+
+        <article class="riddle-card">
+          <div class="riddle-meta"><span class="riddle-tag">Patterns</span><span class="riddle-level">🔥 Most popular · 11K views</span></div>
+          <h3>What comes next?</h3>
+          <p class="riddle-big">3, 6, 11, 18, 27, 38, <span class="riddle-q">?</span></p>
+          <p>Find the next number, and explain why.</p>
+          <details class="riddle-answer">
+            <summary>Reveal answer</summary>
+            <p><strong>51.</strong> The gaps are 3, 5, 7, 9, 11, so the next gap is 13. Put another way, the n-th term is <code>n² + 2</code>, and 7² + 2 = 51.</p>
+          </details>
+          <a class="riddle-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7373740807796776961/" target="_blank" rel="noopener noreferrer">See the post on LinkedIn →</a>
+        </article>
+
+        <article class="riddle-card">
+          <div class="riddle-meta"><span class="riddle-tag">Logic</span><span class="riddle-level">🟠 Medium</span></div>
+          <h3>Two ropes, 45 minutes 🔥</h3>
+          <p>You have two ropes. Each takes exactly one hour to burn, but <strong>unevenly</strong>, so half a rope doesn't mean half an hour. You also have matches.</p>
+          <p>How do you measure exactly 45 minutes?</p>
+          <details class="riddle-answer">
+            <summary>Reveal answer</summary>
+            <p>Light rope 1 at <strong>both ends</strong> and rope 2 at <strong>one end</strong>. Rope 1 burns out after 30 minutes. At that moment, light the other end of rope 2: its remaining half hour now burns in 15 minutes. 30 + 15 = <strong>45</strong>.</p>
+          </details>
+          <a class="riddle-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7360669907874701312/" target="_blank" rel="noopener noreferrer">See the post on LinkedIn →</a>
+        </article>
+
+      </div>
+
+      <div class="riddles-cta">
+        <a href="https://www.linkedin.com/in/lihi-askapa/" class="btn primary" target="_blank" rel="noopener noreferrer">
+          Join the riddle on LinkedIn 🐝
+        </a>
       </div>
 
     </section>
