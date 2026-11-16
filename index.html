@@ -1846,18 +1846,21 @@
       return;
     }
 
+    // Reveal each element once, as soon as any part of it enters the screen.
+    // (Hiding it again on scroll-out, plus a 20% threshold, made tall sections
+    // on phones stay invisible or blank while scrolling.)
     const observer = new IntersectionObserver(
-      entries => {
+      (entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
-          } else {
-            entry.target.classList.remove("show");
+            obs.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.2
+        threshold: 0,
+        rootMargin: "0px 0px -8% 0px"
       }
     );
 
