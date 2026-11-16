@@ -459,93 +459,16 @@ textarea {
   background-position: 100% 0;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 180px);
-  gap: 3.2rem;
-  justify-content: center;
-  justify-items: center;
-  position: relative;
-}
 
-/* =========================================
-   PUZZLE SKILLS
-========================================= */
 
-.puzzle-skill {
-  width: 140px;
-  height: 140px;
-  position: relative;
-  border-radius: 20px;
-  background-color: var(--pink);
-  cursor: grab;
-  opacity: 1;
-  transition:
-    opacity 0.7s ease,
-    box-shadow 0.25s ease;
-}
 
-.puzzle-skill:active {
-  cursor: grabbing;
-}
 
-.puzzle-skill span {
-  position: absolute;
-  border-radius: 50%;
-}
 
-.puzzle-skill .text {
-  position: relative;
-  z-index: 2;
-  display: block;
-  color: var(--dark);
-  font-size: 0.93rem;
-  font-weight: 800;
-  text-align: center;
-  padding: 3.2rem 1rem 0.6rem;
-  width: 100%;
-  word-break: break-word;
-}
 
-.puzzle-skill .t {
-  width: 40px;
-  height: 40px;
-  top: -22px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--pink);
-}
 
-.puzzle-skill .r {
-  width: 40px;
-  height: 40px;
-  top: 50%;
-  right: -22px;
-  transform: translateY(-50%);
-  background-color: var(--pink);
-}
 
-.puzzle-skill .b {
-  width: 34px;
-  height: 34px;
-  bottom: -19px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--dark);
-}
 
-.puzzle-skill .l {
-  width: 34px;
-  height: 34px;
-  top: 50%;
-  left: -19px;
-  transform: translateY(-50%);
-  background-color: var(--dark);
-}
 
-.puzzle-skill:hover {
-  box-shadow: 0 10px 25px rgba(243, 46, 144, 0.35);
-}
 
 /* =========================================
    EXPERIENCE
@@ -1525,26 +1448,8 @@ textarea {
     padding: 3rem 1.4rem;
   }
 
-  .skills-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 3.1rem;
-    padding: 0 1rem;
-  }
 
-  .puzzle-skill {
-    width: 100%;
-    max-width: 150px;
-    height: 120px;
-  }
 
-  .puzzle-skill .text {
-    font-size: 0.85rem;
-    line-height: 1.25;
-    padding: 2.6rem 0.6rem 0.4rem;
-    text-align: center;
-    white-space: normal;
-    word-break: break-word;
-  }
 
   /* EXPERIENCE */
 
@@ -1747,26 +1652,8 @@ textarea {
 
 @media (max-width: 400px) {
 
-  .skills-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2.2rem;
-    padding: 0;
-  }
 
-  .puzzle-skill {
-    width: 100%;
-    max-width: 135px;
-    height: 110px;
-  }
 
-  .puzzle-skill .text {
-    font-size: 0.75rem;
-    line-height: 1.25;
-    padding: 2.4rem 0.7rem 0.4rem;
-    text-align: center;
-    white-space: normal;
-    word-break: break-word;
-  }
 }
 
 /* =========================================
@@ -1775,23 +1662,8 @@ textarea {
 
 @media (min-width: 769px) {
 
-  .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    justify-content: center;
-    align-items: flex-start;
-  }
 
-  .puzzle-skill {
-    width: 180px;
-    height: 140px;
-  }
 
-  .puzzle-skill .text {
-    font-size: 0.9rem;
-    padding-top: 3.2rem;
-  }
 }
 
 /* =========================================
@@ -1819,4 +1691,125 @@ textarea {
   .typewriter-caret {
     animation: none;
   }
+}
+
+/* =========================================
+   PUZZLE SKILLS – real interlocking pieces
+   Each piece has a tab on the top and right and a matching
+   hole on the bottom and left (SVG mask), so neighbours fit.
+========================================= */
+
+.skills-grid {
+  --cell: 140px;                          /* size of the square body */
+  --tab: calc(var(--cell) * 30 / 140);    /* how far a tab sticks out */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--cell));
+  grid-auto-rows: var(--cell);
+  gap: 0;
+  justify-content: center;
+  max-width: calc(var(--cell) * 7 + var(--tab));
+  margin: 0 auto;
+  padding: var(--tab) var(--tab) 0 0;
+  position: relative;
+}
+
+.puzzle-skill {
+  box-sizing: border-box;
+  width: calc(var(--cell) + var(--tab));
+  height: calc(var(--cell) + var(--tab));
+  margin-top: calc(var(--tab) * -1);
+  padding: var(--tab) var(--tab) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  background-color: #db2777;
+  cursor: grab;
+  user-select: none;
+  scale: 0.985;                           /* thin seam between pieces */
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 170'%3E%3Cpath d='M14 30L56.584 30A18 18 0 1 1 83.416 30L126 30A14 14 0 0 1 140 44L140 86.584A18 18 0 1 1 140 113.416L140 156A14 14 0 0 1 126 170L83.416 170A18 18 0 1 0 56.584 170L14 170A14 14 0 0 1 0 156L0 113.416A18 18 0 1 0 0 86.584L0 44A14 14 0 0 1 14 30Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 170'%3E%3Cpath d='M14 30L56.584 30A18 18 0 1 1 83.416 30L126 30A14 14 0 0 1 140 44L140 86.584A18 18 0 1 1 140 113.416L140 156A14 14 0 0 1 126 170L83.416 170A18 18 0 1 0 56.584 170L14 170A14 14 0 0 1 0 156L0 113.416A18 18 0 1 0 0 86.584L0 44A14 14 0 0 1 14 30Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  transition: opacity 0.7s ease, filter 0.2s ease;
+}
+
+/* colour is set by row/column in JS so neighbours never share a colour */
+.puzzle-skill[data-color="1"] { background-color: #c026d3; }
+.puzzle-skill[data-color="2"] { background-color: #9333ea; }
+
+.puzzle-skill span:not(.text) { display: none; }   /* old fake tabs/holes */
+
+.puzzle-skill:hover { filter: brightness(1.12); }
+.puzzle-skill.dragging { cursor: grabbing; z-index: 20; filter: brightness(1.15); }
+
+.puzzle-skill .text {
+  color: #ffffff;
+  font-size: calc(var(--cell) / 10);
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  /* text sits in the area that is clear of the left and bottom holes */
+  width: 100%;
+  padding: 0 calc(var(--tab) * 0.35) var(--tab) var(--tab);
+  word-break: normal;
+  overflow-wrap: normal;
+  pointer-events: none;
+}
+
+.puzzle-reset {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--pink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.puzzle-reset.visible { visibility: visible; }
+.puzzle-reset:hover { background: rgba(243, 46, 144, 0.15); }
+
+@media (max-width: 768px) {
+  .skills-grid { --cell: 110px; }
+}
+
+@media (max-width: 420px) {
+  .skills-grid { --cell: 96px; }
+}
+
+/* Drag hint + a short wiggle so visitors notice the pieces move */
+.puzzle-hint {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: -0.5rem 0 1.5rem;
+}
+
+@keyframes puzzle-wiggle {
+  0%, 100% { rotate: 0deg; }
+  20% { rotate: -6deg; }
+  40% { rotate: 5deg; }
+  60% { rotate: -3deg; }
+  80% { rotate: 2deg; }
+}
+
+.puzzle-skill.wiggle { animation: puzzle-wiggle 0.7s ease-in-out; }
+
+/* Mouse and touch get their own hint text */
+.puzzle-hint .hint-touch { display: none; }
+
+@media (hover: none) {
+  .puzzle-hint .hint-mouse { display: none; }
+  .puzzle-hint .hint-touch { display: inline; }
+}
+
+/* No iOS callout / text selection on long press */
+.puzzle-skill { -webkit-touch-callout: none; -webkit-user-select: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .puzzle-skill.wiggle { animation: none; }
 }
