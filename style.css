@@ -2101,3 +2101,28 @@ textarea {
   .riddle-stat-num { font-size: 1.5rem; }
   .riddle-card { padding: 1.3rem 1.2rem; }
 }
+
+/* Link from the 2D skills puzzle to the 3D version */
+.skills-3d-link-wrap {
+  margin: 1.5rem 0 0;
+  text-align: center;
+}
+
+.skills-3d-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(90deg, #db2777, #9333ea);
+}
+
+.skills-3d-link:hover { filter: brightness(1.1); }
+
+.skills-3d-link:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 3px;
+}

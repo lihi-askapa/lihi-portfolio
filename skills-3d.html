@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skills in 3D – Lihi Askapa</title>
+  <meta name="description" content="My skills as a 3D physics puzzle: the pieces drop, collide and click into place. Built with Three.js and cannon-es." />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --pink: #f32e90;
+      --purple: #a855f7;
+      --text: #e5e7eb;
+      --muted: #cbd5f5;
+      --dark: #020617;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      color: var(--text);
+      background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, var(--dark) 60%);
+      font-family: "Sora", system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    #scene {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      touch-action: none;          /* drag pieces with a finger, without scrolling the page */
+      cursor: grab;
+    }
+
+    #scene.dragging { cursor: grabbing; }
+
+    .hud {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 2;
+      padding: 1.25rem 1.5rem 0;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .hud h1 {
+      margin: 0;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-weight: 700;
+    }
+
+    .hud h1 span {
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hud p {
+      margin: 0.4rem auto 0;
+      max-width: 36rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .controls {
+      position: fixed;
+      bottom: 1.25rem;
+      left: 50%;
+      z-index: 2;
+      display: flex;
+      gap: 0.6rem;
+      transform: translateX(-50%);
+    }
+
+    .controls button,
+    .back {
+      min-height: 44px;
+      padding: 0.6rem 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      font: 600 0.92rem "Sora", sans-serif;
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .controls button.primary {
+      border-color: transparent;
+      background: linear-gradient(90deg, #db2777, #9333ea);
+    }
+
+    .controls button:focus-visible,
+    .back:focus-visible {
+      outline: 3px solid var(--pink);
+      outline-offset: 2px;
+    }
+
+    .back {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    /* Text version of the skills, for screen readers and if WebGL is unavailable */
+    .fallback {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    .no-webgl .fallback {
+      position: static;
+      width: auto;
+      height: auto;
+      max-width: 40rem;
+      margin: 9rem auto 0;
+      padding: 0 1.5rem;
+      clip: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      list-style: none;
+    }
+
+    .no-webgl .fallback li {
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      background: #9333ea;
+    }
+
+    .no-webgl #scene,
+    .no-webgl .controls { display: none; }
+
+    @media (max-width: 600px) {
+      .hud { padding-top: 4rem; }
+      .hud p { font-size: 0.85rem; }
+      .controls button { padding: 0.55rem 0.9rem; font-size: 0.85rem; }
+    }
+  </style>
+
+  <!-- Libraries (exact versions, both MIT licensed) -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "cannon-es": "https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <a class="back" href="index.html#about">← Back to portfolio</a>
+
+  <header class="hud">
+    <h1>My skills, <span>in 3D</span></h1>
+    <p id="hint">Watch the pieces fall into place. Then grab one and throw it.</p>
+  </header>
+
+  <canvas id="scene" aria-label="A 3D puzzle of Lihi's skills. The full list is available as text below."></canvas>
+
+  <div class="controls">
+    <button type="button" id="btn-drop">Drop the puzzle</button>
+    <button type="button" id="btn-assemble" class="primary">Assemble</button>
+  </div>
+
+  <ul class="fallback" id="skills-list" aria-label="Skills"></ul>
+
+  <script type="module" src="skills3d.js"></script>
+</body>
+</html>
