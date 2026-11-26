@@ -24,11 +24,14 @@ html {
 }
 
 body {
-  background: radial-gradient(
-    circle at top left,
-    #391737 0,
-    #0e030d 35%
+  /* calm dark background with one soft pink glow at the top */
+  background-color: #060509;
+  background-image: radial-gradient(
+    ellipse 70% 55% at 75% 0%,
+    rgba(243, 46, 144, 0.07) 0%,
+    rgba(243, 46, 144, 0) 70%
   );
+  background-repeat: no-repeat;
   color: var(--text);
   font-family: "Sora", sans-serif;
   overflow-x: hidden;
@@ -2125,4 +2128,191 @@ textarea {
 .skills-3d-link:focus-visible {
   outline: 3px solid var(--pink);
   outline-offset: 3px;
+}
+
+
+/* =========================================
+   AURORA BACKGROUND
+   Soft blurred glows that drift very slowly behind the whole page,
+   plus a few rising sparkles in the hero. CSS only (no WebGL needed).
+========================================= */
+
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.36;
+  will-change: transform;
+}
+
+.aurora .a1 {
+  top: -18%;
+  right: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, #f32e90 0%, rgba(243, 46, 144, 0) 70%);
+  animation: aurora-1 22s ease-in-out infinite alternate;
+}
+
+.aurora .a2 {
+  top: 30%;
+  left: -15%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, #7c3aed 0%, rgba(124, 58, 237, 0) 70%);
+  opacity: 0.32;
+  animation: aurora-2 28s ease-in-out infinite alternate;
+}
+
+.aurora .a3 {
+  bottom: -25%;
+  right: 10%;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, #c026d3 0%, rgba(192, 38, 211, 0) 70%);
+  opacity: 0.26;
+  animation: aurora-3 25s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-25vw, 15vh) scale(1.2); }
+  100% { transform: translate(-10vw, 30vh) scale(0.9); }
+}
+
+@keyframes aurora-2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(30vw, -12vh) scale(1.2); }
+  100% { transform: translate(15vw, 18vh) scale(1); }
+}
+
+@keyframes aurora-3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-22vw, -20vh) scale(1.15); }
+  100% { transform: translate(14vw, -8vh) scale(0.9); }
+}
+
+/* sparkles rising in the hero */
+.hero {
+  position: relative;
+}
+
+.hero-layout {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-sparkles i {
+  position: absolute;
+  bottom: -10px;
+  width: var(--s, 3px);
+  height: var(--s, 3px);
+  border-radius: 50%;
+  background: var(--c, #f9a8d4);
+  box-shadow: 0 0 8px 1px var(--c, #f9a8d4);
+  opacity: 0;
+  animation: sparkle-rise var(--d, 12s) linear var(--delay, 0s) infinite;
+}
+
+@keyframes sparkle-rise {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  15%  { opacity: var(--o, 0.7); }
+  50%  { transform: translateY(-45vh) translateX(var(--drift, 10px)); }
+  85%  { opacity: var(--o, 0.7); }
+  100% { transform: translateY(-90vh) translateX(0); opacity: 0; }
+}
+
+@media (max-width: 600px) {
+  .aurora span { filter: blur(70px); }
+  .aurora .a1 { width: 90vw; height: 90vw; }
+  .aurora .a2 { width: 85vw; height: 85vw; }
+  .aurora .a3 { width: 80vw; height: 80vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora span { animation: none; }
+  .hero-sparkles { display: none; }
+}
+
+
+/* =========================================
+   EDUCATION CARDS – clean look
+   Flat cards with a thin border and a pink grade; the pink glow
+   (and a small lift) appears only when you hover over a card.
+========================================= */
+
+.edu-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: #15121d;
+  box-shadow: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.edu-card::before {
+  display: none;
+}
+
+.edu-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(243, 46, 144, 0.55);
+  background: #1b1725;
+  box-shadow: 0 22px 50px rgba(243, 46, 144, 0.35);
+}
+
+.edu-card h3 {
+  color: #ecebf2;
+}
+
+.edu-card p {
+  color: #a9a6b8;
+}
+
+.edu-badge {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #a9a6b8;
+  background: transparent;
+  letter-spacing: 0.08em;
+}
+
+.edu-grade {
+  color: var(--pink);
+}
+
+.degree-summary {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: #15121d;
+  box-shadow: none;
+}
+
+.degree-summary .gpa-highlight,
+.degree-summary .degree-percent {
+  color: var(--pink);
+  text-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edu-card:hover { transform: none; }
 }

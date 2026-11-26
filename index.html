@@ -41,9 +41,15 @@
 
 <body>
 
+<!-- Soft moving glow behind the page -->
+<div class="aurora" aria-hidden="true">
+  <span class="a1"></span>
+  <span class="a2"></span>
+  <span class="a3"></span>
+</div>
+
 <div id="site-wrapper">
 
-  <canvas id="bg" aria-hidden="true"></canvas>
 
   <!-- ==========================================
        NAVBAR
@@ -192,6 +198,8 @@
     ======================================= -->
 
     <section class="hero fade-in-on-scroll" id="home">
+
+      <div class="hero-sparkles" aria-hidden="true"></div>
 
       <div class="hero-layout">
 
@@ -1767,120 +1775,7 @@
   }
 </script>
 
-<!-- ==========================================
-     PARTICLE BACKGROUND
-=========================================== -->
 
-<script>
-  const canvas = document.getElementById("bg");
-  const ctx = canvas.getContext("2d");
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
-  resize();
-
-  window.addEventListener("resize", resize);
-
-  const particles = [];
-  const particleCount = 70;
-  const maxDist = 120;
-
-  for (let i = 0; i < particleCount; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.6,
-      vy: (Math.random() - 0.5) * 0.6
-    });
-  }
-
-  let mouse = {
-    x: null,
-    y: null
-  };
-
-  window.addEventListener("mousemove", e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
-
-  window.addEventListener("mouseleave", () => {
-    mouse.x = null;
-    mouse.y = null;
-  });
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach((p, i) => {
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0 || p.x > canvas.width) {
-        p.vx *= -1;
-      }
-
-      if (p.y < 0 || p.y > canvas.height) {
-        p.vy *= -1;
-      }
-
-      ctx.fillStyle = "rgba(255, 80, 180, 0.7)";
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
-      ctx.fill();
-
-      for (let j = i + 1; j < particles.length; j++) {
-        const p2 = particles[j];
-
-        const dx = p.x - p2.x;
-        const dy = p.y - p2.y;
-
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < maxDist) {
-          const alpha = 1 - dist / maxDist;
-
-          ctx.strokeStyle =
-            `rgba(255, 80, 180, ${alpha})`;
-
-          ctx.lineWidth = 1;
-
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.stroke();
-        }
-      }
-
-      if (mouse.x !== null) {
-        const dx = p.x - mouse.x;
-        const dy = p.y - mouse.y;
-
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < 160) {
-          const alpha = 1 - dist / 160;
-
-          ctx.strokeStyle =
-            `rgba(0, 200, 255, ${alpha})`;
-
-          ctx.beginPath();
-          ctx.moveTo(mouse.x, mouse.y);
-          ctx.lineTo(p.x, p.y);
-          ctx.stroke();
-        }
-      }
-    });
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-</script>
 
 <!-- ==========================================
      SMOOTH SCROLL
@@ -2148,6 +2043,28 @@
 
     setTimeout(typeNextChar, 400);
   });
+</script>
+
+<!-- A few slow sparkles rising in the hero (skipped with reduced motion) -->
+<script>
+  (function () {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const box = document.querySelector(".hero-sparkles");
+    if (!box) return;
+    const colors = ["#f9a8d4", "#ffffff", "#ffd24d", "#f32e90", "#c084fc"];
+    const count = window.innerWidth < 600 ? 22 : 40;
+    for (let i = 0; i < count; i++) {
+      const s = document.createElement("i");
+      s.style.left = Math.random() * 100 + "%";
+      s.style.setProperty("--s", (3 + Math.random() * 4).toFixed(1) + "px");
+      s.style.setProperty("--c", colors[Math.floor(Math.random() * colors.length)]);
+      s.style.setProperty("--d", (7 + Math.random() * 7).toFixed(1) + "s");
+      s.style.setProperty("--delay", (-Math.random() * 14).toFixed(1) + "s");
+      s.style.setProperty("--o", (0.55 + Math.random() * 0.4).toFixed(2));
+      s.style.setProperty("--drift", ((Math.random() - 0.5) * 40).toFixed(0) + "px");
+      box.appendChild(s);
+    }
+  })();
 </script>
 
 <!-- 3D welcome bee (falls back to the 2D bee.js if 3D is unavailable) -->
