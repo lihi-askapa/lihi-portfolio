@@ -28,6 +28,10 @@
 
   <link rel="stylesheet" href="style.css" />
 
+  <!-- Accessibility menu (loaded early so saved settings apply before the page paints) -->
+  <link rel="stylesheet" href="a11y.css" />
+  <script src="a11y.js"></script>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
@@ -40,6 +44,8 @@
 </head>
 
 <body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- Soft moving glow behind the page -->
 <div class="aurora" aria-hidden="true">
@@ -191,7 +197,7 @@
 
   </div>
 
-  <main>
+  <main id="main-content" tabindex="-1">
 
     <!-- ======================================
          HERO SECTION
@@ -1583,6 +1589,10 @@
     ======================================= -->
 
     <footer class="footer">
+
+      <p class="footer-a11y">
+        <a href="accessibility.html">Accessibility statement</a>
+      </p>
 
       <p>
         Created with LOVE by
