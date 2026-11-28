@@ -1291,7 +1291,7 @@
 
         </article>
 
-        <!-- 3D SKILLS PUZZLE -->
+        <!-- PULSE — MINI UPTIME MONITOR -->
 
         <article
           class="project-card featured-project fade-in-on-scroll"
@@ -1300,21 +1300,18 @@
           <div class="project-header">
 
             <div>
-
               <h3>
-                Skills in 3D –
-                Interactive Physics Puzzle
+                Pulse – Mini Uptime Monitor
               </h3>
 
               <p class="project-subtitle">
-                My skills as 21 jigsaw pieces that drop,
-                collide and click into place.
+                Website monitoring on AWS with automated delivery
+                and verified recovery.
               </p>
-
             </div>
 
             <span class="project-badge">
-              Experiment
+              DevOps Project
             </span>
 
           </div>
@@ -1324,26 +1321,33 @@
             <div class="project-main">
 
               <p class="project-description">
-                A 3D take on the skills puzzle above. The pieces
-                fall with real physics, then fly up and lock
-                together. Grab any piece to pull it out and throw it.
+                A live website monitor deployed on <strong>AWS EC2</strong>.
+                Separate web and scheduler containers share persistent
+                SQLite history, with Caddy providing public HTTPS.
               </p>
 
               <ul class="project-points">
 
                 <li>
-                  Interlocking jigsaw shapes generated in code,
-                  with labels drawn on each piece.
+                  <strong>CI/CD:</strong> 15 automated tests, Docker image
+                  publishing to ECR, and manually triggered deployment
+                  through GitHub Actions, OIDC and AWS Systems Manager.
                 </li>
 
                 <li>
-                  Rigid-body physics for falling, collisions
-                  and drag-and-throw.
+                  <strong>Infrastructure as code:</strong> Terraform-managed
+                  registry, IAM roles and S3 storage, with versioned remote
+                  state and locking.
                 </li>
 
                 <li>
-                  Adapts to phones (3 columns), respects
-                  reduced motion, and has a text fallback.
+                  <strong>Recovery:</strong> verified image rollback, daily
+                  SQLite backups to S3 and an isolated restore exercise.
+                </li>
+
+                <li>
+                  <strong>Health checks:</strong> application/database
+                  readiness and detection of a stopped scheduler.
                 </li>
 
               </ul>
@@ -1354,36 +1358,55 @@
 
               <div class="meta-block">
                 <span class="meta-label">Role</span>
-                <span class="meta-value">Creative Developer</span>
+                <span class="meta-value">Developer &amp; DevOps</span>
               </div>
 
               <div class="meta-block">
                 <span class="meta-label">Context</span>
-                <span class="meta-value">
-                  Personal Experiment
-                </span>
+                <span class="meta-value">Personal DevOps Project</span>
               </div>
 
               <div class="meta-block">
-
                 <span class="meta-label">Tech</span>
-
                 <div class="meta-tags">
-                  <span>Three.js</span>
-                  <span>WebGL</span>
-                  <span>cannon-es</span>
-                  <span>JavaScript</span>
+                  <span>AWS</span>
+                  <span>Docker</span>
+                  <span>Terraform</span>
+                  <span>GitHub Actions</span>
+                  <span>Python</span>
+                  <span>Flask</span>
+                  <span>SQLite</span>
+                  <span>Caddy</span>
                 </div>
-
               </div>
 
               <div class="project-links">
 
                 <a
-                  href="skills-3d.html"
+                  href="https://pulse-13-60-191-46.sslip.io/"
                   class="btn project-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Try it
+                  View Live Demo
+                </a>
+
+                <a
+                  href="https://github.com/lihi-askapa/mini-uptime-monitor"
+                  class="btn project-btn secondary-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View on GitHub
+                </a>
+
+                <a
+                  href="https://github.com/lihi-askapa/mini-uptime-monitor/blob/main/docs/architecture.md"
+                  class="btn project-btn secondary-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Architecture
                 </a>
 
               </div>
